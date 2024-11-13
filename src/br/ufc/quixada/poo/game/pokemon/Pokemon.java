@@ -1,34 +1,43 @@
+package br.ufc.quixada.poo.game.pokemon;
+
 public class Pokemon {
 
-  String nome;
-  int nivel;
-  String tipo;
-  float peso;
-  float altura;
-  int vida;
-  int velocidade;
-  int ataque;
+  private String nome;
+  private int nivel;
+  private float peso;
+  private float altura;
+  private int vida;
+  private int velocidade;
+  private int ataque;
+  static int contador = 0;
 
-  Pokemon(String nome) {
+  public Pokemon(String nome) {
     ataque =   (int) (Math.random()*100);
     this.nome = nome;
     this.vida = 1000;
+    Pokemon.contador++;
   }
 
-  Pokemon(String nome, int nivel) {
+  public Pokemon(String nome, int nivel) {
     this(nome);
     this.nivel = nivel;
   }
 
-  Pokemon(String nome, int nivel,float peso, float altura) {
+  public Pokemon(String nome, int nivel,float peso, float altura) {
     this(nome,nivel);
     this.peso = peso;
     this.altura = altura;
   }
 
+  public String getNome() {
+    return nome;
+  }
 
+  public static int getContador() {
+    return contador;
+  }
 
-  String falar() {
+  public String falar() {
     if(estaVivo()) {
       return nome + " " + this.nome;
     } else {
@@ -36,15 +45,15 @@ public class Pokemon {
     }
   }
 
-  boolean estaVivo() {
+  private boolean estaVivo() {
     return vida != 0;
   }
 
-  void recuperarVida(int vida) {
+  public void recuperarVida(int vida) {
     this.vida += vida;
   }
 
-  void atacar(int movimento, Pokemon alvo) {
+  public void atacar(int movimento, Pokemon alvo) {
     System.out.println("Atacando o pokemon " + alvo.nome + " com ataque numero " + movimento);
   }
 
