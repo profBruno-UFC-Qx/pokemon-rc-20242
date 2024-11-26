@@ -7,11 +7,8 @@ public class Main {
 
   public static void main(String[] args) {
     Treinador ash = new Treinador("Ash");
-
-
     Pokemon pikachu = new Pokemon("Pikachu");
     Pokemon magikarp = new Pokemon("Magikarp");
-
 
     ash.capturar(pikachu);
     ash.capturar(magikarp);
