@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 class MapaTest {
 
+
   @Test
   void posicaoCentral() {
     Mapa mapa = new Mapa(5, 5);
