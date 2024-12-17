@@ -15,6 +15,7 @@ public class Pokemon {
     ataque =   (int) (Math.random()*100);
     this.nome = nome;
     this.vida = 1000;
+    this.nivel = 5;
     Pokemon.contador++;
   }
 
@@ -31,6 +32,10 @@ public class Pokemon {
 
   public String getNome() {
     return nome;
+  }
+
+  public int getNivel() {
+    return this.nivel;
   }
 
   public static int getContador() {

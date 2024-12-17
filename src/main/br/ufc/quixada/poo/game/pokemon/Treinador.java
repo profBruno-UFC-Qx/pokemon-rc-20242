@@ -6,6 +6,7 @@ public class Treinador {
   private int x;
   private int y;
   private Pokemon[] pokemons;
+  private Pokebola[] pokebolas = {new MasterBall(), new MasterBall(), new MasterBall()};
 
   public Treinador(String nome) {
     this.nome = nome;
@@ -43,6 +44,26 @@ public class Treinador {
       }
     }
     return false;
+  }
+
+  public boolean temPokebola() {
+    for (Pokebola pokebola : pokebolas) {
+      if(pokebola != null) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public Pokebola arremessarPokebola() {
+    for(int i = 0; i < pokebolas.length; i++) {
+      if(pokebolas[i] != null) {
+        Pokebola pokebola = pokebolas[i];
+        pokebolas[i] = null;
+        return pokebola;
+      }
+    }
+    return null;
   }
 }
 

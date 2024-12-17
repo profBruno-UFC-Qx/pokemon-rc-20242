@@ -16,7 +16,6 @@ public class Batalha {
 
   public void iniciar() {
     System.out.println("Você encontrou um " + pokemon.getNome() + "!");
-    proximoTurno();
   }
 
   public boolean terminou() {
@@ -34,6 +33,12 @@ public class Batalha {
     switch (escolha) {
       case "1":
         //Recuperar Pokebola e tentar captura
+        Pokebola pokebola = treinador.arremessarPokebola();
+        boolean capturou = false;
+        if(pokebola != null) {
+          capturou = tentarCaptura(pokebola);
+        }
+        terminou = capturou || !treinador.temPokebola();
         break;
       case "2":
         System.out.println("Você fugiu da batalha!");
@@ -59,7 +64,7 @@ public class Batalha {
         return false;
       }
     } else {
-      System.out.println("A captura falhou! O Pokémon escapou.");
+      System.out.println("A captura falhou! O Pokémon quebrou a pokebola.");
       return false;
     }
   }
