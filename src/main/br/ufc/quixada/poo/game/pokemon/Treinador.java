@@ -1,12 +1,15 @@
 package br.ufc.quixada.poo.game.pokemon;
 
+import br.ufc.quixada.poo.game.pokemon.pokebola.MasterBall;
+import br.ufc.quixada.poo.game.pokemon.pokebola.Pokebola;
+
 public class Treinador {
 
   private String nome;
   private int x;
   private int y;
   private Pokemon[] pokemons;
-  private Pokebola[] pokebolas = {new MasterBall(), new MasterBall(), new MasterBall()};
+  private Pokebola[] pokebolas = {new MasterBall(), new Pokebola()};
 
   public Treinador(String nome) {
     this.nome = nome;
