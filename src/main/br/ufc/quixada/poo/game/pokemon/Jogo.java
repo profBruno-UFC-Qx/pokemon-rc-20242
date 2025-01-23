@@ -1,11 +1,13 @@
 package br.ufc.quixada.poo.game.pokemon;
 
+import br.ufc.quixada.poo.game.pokemon.batalha.Batalha;
+
 import java.util.Scanner;
 
 public class Jogo {
 
-  private Mapa mapa;
-  private Treinador treinador;
+  private final Mapa mapa;
+  private final Treinador treinador;
 
   public Jogo(String nome) {
     treinador = new Treinador(nome);
@@ -14,13 +16,13 @@ public class Jogo {
 
   public void iniciar() {
     Scanner scanner = new Scanner(System.in);
-    String opcao = "";
+    String opcao;
     do {
       mapa.exibirMapa(treinador.getX(), treinador.getY());
       System.out.println("Para onde quer ir? c, b, f, t ou sair");
       opcao = scanner.nextLine();
       mapa.moverTreinador(treinador, opcao);
-      if (mapa.encontrouPokemon(treinador)) {
+      if(mapa.encontrouPokemon(treinador)) {
         Pokemon encontrado = Encontro.getRandomPokemon();
         Batalha batalha = new Batalha(treinador, encontrado);
         batalha.iniciar();
@@ -29,5 +31,7 @@ public class Jogo {
         } while(!batalha.terminou());
       }
     } while(!opcao.equals("sair"));
+
+
   }
 }

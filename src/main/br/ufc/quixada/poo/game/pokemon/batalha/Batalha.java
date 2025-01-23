@@ -1,13 +1,15 @@
-package br.ufc.quixada.poo.game.pokemon;
+package br.ufc.quixada.poo.game.pokemon.batalha;
 
+import br.ufc.quixada.poo.game.pokemon.Pokemon;
+import br.ufc.quixada.poo.game.pokemon.Treinador;
 import br.ufc.quixada.poo.game.pokemon.pokebola.Pokebola;
 
 import java.util.Scanner;
 
 public class Batalha {
-  private Treinador treinador;
-  private Pokemon pokemon;
-  private boolean terminou = false;
+  private final Treinador treinador;
+  private final Pokemon pokemon;
+  private boolean terminou;
 
   public Batalha(Treinador treinador, Pokemon pokemon) {
     this.treinador = treinador;
@@ -36,10 +38,13 @@ public class Batalha {
         //Recuperar Pokebola e tentar captura
         Pokebola pokebola = treinador.arremessarPokebola();
         boolean capturou = false;
-        if(pokebola != null) {
+        if(pokebola == null) {
+          System.out.println("Você não tem mais pokebola. O pokemo escapou!");
+          terminou = true;
+        } else {
           capturou = tentarCaptura(pokebola);
+          terminou = capturou;
         }
-        terminou = capturou || !treinador.temPokebola();
         break;
       case "2":
         System.out.println("Você fugiu da batalha!");
