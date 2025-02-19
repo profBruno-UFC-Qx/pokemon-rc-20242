@@ -61,6 +61,7 @@ public class Mapa {
         x = Math.min(largura - 1, ++x);
         break;
       case "sair":
+        PokedexManager.salverPokedex(treinador.getPokedex());
         System.exit(0);
       default:
         System.out.println("Direção inválida");

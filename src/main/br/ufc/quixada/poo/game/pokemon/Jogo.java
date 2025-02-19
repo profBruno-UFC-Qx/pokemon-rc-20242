@@ -10,7 +10,7 @@ public class Jogo {
   private final Treinador treinador;
 
   public Jogo(String nome) {
-    treinador = new Treinador(nome, new Pokedex());
+    treinador = new Treinador(nome, PokedexManager.carregarPokedex());
     mapa = new Mapa(10, 10);
   }
 

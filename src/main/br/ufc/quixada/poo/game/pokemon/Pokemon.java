@@ -116,4 +116,19 @@ public class Pokemon {
   }
 
 
+  public int getHpBase() {
+    return hpBase;
+  }
+
+  public int getDefesaBase() {
+    return defesaBase;
+  }
+
+  public int getAtaqueBase() {
+    return ataqueBase;
+  }
+
+  public int getAmizade() {
+    return amizade;
+  }
 }

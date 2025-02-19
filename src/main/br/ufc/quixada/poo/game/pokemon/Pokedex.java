@@ -8,6 +8,11 @@ public class Pokedex implements Registravel {
   private List<Pokemon> capturados = new ArrayList<>();
   private int ocorrencias[] = new int[151];
 
+  Pokedex(List<Pokemon> capturados, int ocorrencias[]) {
+    this.capturados = capturados;
+    this.ocorrencias = ocorrencias;
+  }
+
   @Override
   public void registrarEncontro(Pokemon pokemon) {
     EspeciePokemon especie = EspeciePokemon.valueOf(pokemon.getNome().toUpperCase());
@@ -46,6 +51,10 @@ public class Pokedex implements Registravel {
 
   public double taxaDeSucesso(EspeciePokemon especie) {
     return (contarCapturaPorEspecie(especie)/contarVistosPorEspecie(especie))*100;
+  }
+
+  public int[] getOcorrencias() {
+    return ocorrencias;
   }
 }
 
